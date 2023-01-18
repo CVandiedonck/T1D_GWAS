@@ -15025,6 +15025,8 @@ Les sujets d'étude proviennent d'une série de patients atteints de diabète de
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
 <span class="c1">#cell 6 et votre code R</span>
+<span class="m">0.05</span><span class="o">/</span><span class="m">138229</span>
+<span class="m">0.05</span><span class="o">/</span><span class="m">154939</span>
 </pre></div>
 
      </div>
@@ -15171,7 +15173,7 @@ Les sujets d'étude proviennent d'une série de patients atteints de diabète de
   <td style="text-align:right">4.17                          =1/0.24</td>
   <td style="text-align:right">0.39</td>
   <td style="text-align:right">0.61</td>
-  <td style="text-align:right">0.13                          =0.39<em>0.24(1-0.39+0.39</em>0.24)</td>
+  <td style="text-align:right">0.13                          =0.39x0.24(1-0.39+0.39x0.24)</td>
   <td style="text-align:right">0.87</td>
 </tr>
 <tr>
@@ -15592,11 +15594,11 @@ plink
 </ul>
 <p>Vous devez utiliser le DOS en utilisant l'invite de commande (cmd.exe) ou, sur les dernières versions de windows, le &quot;windows power shell&quot; à partir du menu &quot;fichier&quot; de votre répertoire de travail.  Vos fichiers &quot;inputs&quot; doivent être placés dans le même répertoire (=dossier) que l'éxécutable de PLINK plink.exe.
 Trois options s'offrent à vous, de la plus compliquée à la plus simple!:</p>
-<pre><code>**(1)** Dans le menu « Démarrer » de Windows, rechercher « cmd » puis indiquez le chemin du répertoire où est situé plink.exe (pour changer de répertoire, la commande est “cd”; pour passer au répertoire supérieur, taper “cd ..” ; vous pouvez utiliser la flèche de tabulation à gauche du clavier pour autocompléter les noms de dossiers)
+<pre><code>&lt;b&gt;(1)&lt;/b&gt; Dans le menu « Démarrer » de Windows, rechercher « cmd » puis indiquez le chemin du répertoire où est situé plink.exe (pour changer de répertoire, la commande est “cd”; pour passer au répertoire supérieur, taper “cd ..” ; vous pouvez utiliser la flèche de tabulation à gauche du clavier pour autocompléter les noms de dossiers)
 
-**(2)** Alternativement, trouvez le fichier cmd.exe (en général dans Windows\system 32; vous pouvez le trouver aussi dans les accessoires). Faire une copie que vous placez dans le dossier contenant plink.exe. Si vous double-cliquez alors sur cmd.exe dans ce répertoire, vous pouvez utiliser PLINK.
+&lt;b&gt;(2)&lt;/b&gt; Alternativement, trouvez le fichier cmd.exe (en général dans Windows\system 32; vous pouvez le trouver aussi dans les accessoires). Faire une copie que vous placez dans le dossier contenant plink.exe. Si vous double-cliquez alors sur cmd.exe dans ce répertoire, vous pouvez utiliser PLINK.
 
-**(3)** Encore plus simplement, vous pouvez aussi créer en local un répertoire dans lequel vous mettrez tous vos documents du TP (fichiers d'input, d'output) ainsi que vos programmes. Copiez et collez l'executable plink.exe dans ce répertoire. Copiez et collez également l'exécutable de l'invite de commande cmd.exe dans ce répertoire. Si vous double-cliquez alors sur cmd.exe dans ce répertoire, vous pouvez utiliser PLINK.
+&lt;b&gt;(3)&lt;/b&gt; Encore plus simplement, vous pouvez aussi créer en local un répertoire dans lequel vous mettrez tous vos documents du TP (fichiers d'input, d'output) ainsi que vos programmes. Copiez et collez l'executable plink.exe dans ce répertoire. Copiez et collez également l'exécutable de l'invite de commande cmd.exe dans ce répertoire. Si vous double-cliquez alors sur cmd.exe dans ce répertoire, vous pouvez utiliser PLINK.
 
  Alternativement, si vous travaillez depuis windows power shell, il faut spécifier que plink est dans le répertoire de travail en tapant: .\plink
 </code></pre>
@@ -16143,6 +16145,7 @@ plink --ped input/test.ped --map input/test.map --out output/second
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
 <span class="c1"># cell 16, votre commande</span>
+plink --ped input/test.ped --map input/autosomic.map --out output/autosomic
 </pre></div>
 
      </div>
@@ -16212,6 +16215,7 @@ plink --ped input/test.ped --map input/test.map --out output/second
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
 <span class="c1">#cell 17, votre commande</span>
+plink --ped input/test.ped --map input/autosomic.map --make-bed --out output/mytest_bdata
 </pre></div>
 
      </div>
@@ -16333,6 +16337,18 @@ plink --bfile output/mytest_bdata --out output/load_mytest_bdata
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>La commande ci-dessus ne demandant pas d'output à partir des fichiers d'input binaire, aucune fichier de log n'est créé. Nous verrons dans le prochain TP que l'on peut demander une sortie par exemple da la liste de SNPs étudiés afin d'avoir malgré tout un log et de savoir notamment combien de sujets et de marqueurs ont été lus.</p>
+
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16587,7 +16603,7 @@ Here we are using JupyterLab interface implemented as part of the <a href="https
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Les informations de configuration de ce notebook et de l'environnement jupyterlab associé sont disponibles à ce lien: <a href="https://github.com/CVandiedonck/T1D_GWAS_long_version">https://github.com/CVandiedonck/T1D_GWAS_long_version</a></p>
-<p><em>[last version: 15/01/2023 by Claire Vandiedonck]</em></p>
+<p><em>[last version: 18/01/2023 by Claire Vandiedonck]</em></p>
 <hr />
 
 </div>
