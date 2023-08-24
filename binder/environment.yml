@@ -20,7 +20,7 @@ dependencies:
   - jupyterlab-system-monitor
   - nodejs
   - nbresuse
-  - python>=3.7
+  #- python>=3.7
   - nodejs
   - r-base=4
   - rpy2
