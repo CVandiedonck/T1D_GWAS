@@ -27,6 +27,6 @@ dependencies:
   - simplegeneric # for some reasons needed by rpy2
   - plink=1.90b6.12
   - king=2.2.4
-  - r-qqman
+  #- r-qqman
   - psutil
   - r-pwr
